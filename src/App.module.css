@@ -15,3 +15,13 @@
     /* Os blocos das colunas vão se alinhar na parte superior*/
     align-items: flex-start;
 }
+
+@media (max-width: 758px) {
+    html {
+        font-size: 75%;
+    }
+
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
