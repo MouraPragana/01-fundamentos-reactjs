@@ -5,6 +5,41 @@ import { Sidebar } from "./components/Sidebar"
 import "./global.css"
 import styles from "./App.module.css"
 
+// author: { avatar_url: "", name: "", role: "" }
+// publishedAt: Date
+// content: String
+
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: "https://avatars.githubusercontent.com/u/78274293?v=4",
+      name: "Mateus Moura",
+      role: "Analista de Sistemas"
+    },
+    content: [
+      { type: "paragraph", content: "E ai pessoal !" },
+      { type: "paragraph", content: "Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz no NLR Return" },
+      { type: "link", content: "link.qualquer/aqui" },
+    ],
+    publishedAt: new Date("2022-05-03 20:08:30")
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://github.com/maykbrito.png",
+      name: "Mayk Brito",
+      role: "Educator @Rocketseat"
+    },
+    content: [
+      { type: "paragraph", content: "E ai pessoal !" },
+      { type: "paragraph", content: "Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz no NLR Return" },
+      { type: "link", content: "link.qualquer/aqui" },
+    ],
+    publishedAt: new Date("2022-05-10 19:02:35")
+  }
+]
+
 export function App() {
   return (
     <div>
@@ -12,14 +47,15 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post
-            author="Diego Fernandes"
-            content="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit deserunt nostrum numquam quisquam libero tempore, ipsum incidunt non repellendus, iste facilis? Recusandae accusantium tenetur asperiores accusamus delectus impedit unde odio?"
-          />
-          <Post
-            author="Gabriel Buzzi"
-            content="Um novo post muito legal"
-          />
+          {posts.map(post => {
+            return (
+              <Post
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </div>
