@@ -33,8 +33,8 @@ const posts = [
     },
     content: [
       { type: "paragraph", content: "E ai pessoal !" },
-      { type: "paragraph", content: "Acabei de subir mais um projeto no meu portifólio. É um projeto que fiz no NLR Return" },
-      { type: "link", content: "link.qualquer/aqui" },
+      { type: "paragraph", content: "Segue um repositório mega da hora !" },
+      { type: "link", content: "link.qualquer/aqui2" },
     ],
     publishedAt: new Date("2022-05-10 19:02:35")
   }
@@ -50,6 +50,7 @@ export function App() {
           {posts.map(post => {
             return (
               <Post
+                key={post.id}
                 author={post.author}
                 content={post.content}
                 publishedAt={post.publishedAt}
